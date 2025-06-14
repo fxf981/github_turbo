@@ -4,13 +4,13 @@ export default {
       const hostname = _url.hostname;
   
       // 地域限制：仅允许中国（CN）访问
-      const country = request.headers.get('CF-IPCountry') || 'XX'; // 默认处理无地区头的情况
-      if (country !== 'CN') {
-        return new Response('仅限中国大陆地区访问 | Access Denied: Mainland China Only', {
-          status: 403,
-          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-        });
-      }
+      // const country = request.headers.get('CF-IPCountry') || 'XX'; // 默认处理无地区头的情况
+      // if (country !== 'CN') {
+      //   return new Response('仅限中国大陆地区访问 | Access Denied: Mainland China Only', {
+      //     status: 403,
+      //     headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      //   });
+      // }
   
       // 拦截敏感路径（如登录/注册）
       if (_url.pathname.includes('/login') || _url.pathname.includes('/signup')) {
